@@ -22,21 +22,21 @@ class ProductManager {
         if (product) return 'Ya existe un producto con ese código'
 
         if (this.products.length === 0) {
-            return this.products.push({ id: 1, ...newProduct })}
-        if (this.products.length !== 0){ 
-            return this.products.push({ id: this.products[this.products.length - 1].id + 1, ...newProduct })}
+            return this.products.push({ id: 1, ...newProduct })
+        }
+            return this.products.push({ id: this.products[this.products.length - 1].id + 1, ...newProduct })
     }
 
     getProductsById(id) {
         let product = this.products.find(prod => prod.id === id)
         if (!product) return 'Product not found'
-        return this.products
+        return product
     }
 }
 
 const product = new ProductManager();
 
-console.log( product.addProducts({
+console.log(product.addProducts({
     title: "Primer Producto",
     description: 'Descripción Primer Producto',
     price: 5000,
@@ -44,7 +44,7 @@ console.log( product.addProducts({
     code: 'A01',
     stock: 1000
 }))
-console.log( product.addProducts({
+console.log(product.addProducts({
     title: 'Segundo Producto',
     description: 'Descripción Segundo Producto',
     price: 10000,
@@ -52,15 +52,15 @@ console.log( product.addProducts({
     code: 'A02',
     stock: 2000
 }))
-// // console.log( product.addProducts({
-//     title:'Tercer Producto',
-//     description: 'Descripción Tercer Producto',
-//     price: 10000,
-//     thumbnail: 'Link Tercer Producto',
-//     code: 'A03',
-//     stock: 2000
-// }));
+console.log(product.addProducts({
+    title: 'Tercer Producto',
+    description: 'Descripción Tercer Producto',
+    price: 10000,
+    thumbnail: 'Link Tercer Producto',
+    code: 'A03',
+    stock: 2000
+}));
 
 console.log(product.getProducts());
 
-// console.log(product.getProductsById(2));
+console.log(product.getProductsById(2));
