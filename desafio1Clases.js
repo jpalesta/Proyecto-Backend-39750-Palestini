@@ -1,12 +1,8 @@
 let productos = []
 
-const { promises } = require('fs')
-const fs = promises
 class ProductManager {
-
     constructor() {
         this.products = productos
-        this.path = './manejoDeArchivos.json'
     }
 
     getProducts = () => {
