@@ -11,7 +11,6 @@ class ProductManager {
         try {
             const data = await fs.readFile(this.path, "utf-8");
             this.products = JSON.parse(data);
-            return this.products
         } catch (error) {
             this.products = [];
         }
@@ -23,8 +22,13 @@ class ProductManager {
     }
 
     getProducts = async () => {
-        await this.read()
-        console.log(this.products)
+        try {
+            const data = await fs.readFile(this.path, "utf-8");
+            this.products = JSON.parse(data);
+            console.log(this.products)
+        } catch (error) {
+            this.products = [];
+        }
     }
 
     addProducts = async (newProduct) => {
@@ -105,12 +109,12 @@ const product = new ProductManager();
 //A continuación comentar la línea 103 y descomentar las lineas 107 a 114. Correr archivo
 
 // product.addProducts({
-//     title: "Primer Producto",
-//     description: 'Descripción Primer Producto',
-//     price: 5000,
-//     thumbnail: 'Link Primer Producto',
-//     code: 'A01',
-//     stock: 1000
+//     title: "Décimo Producto",
+//     description: 'Descripción Décimo Producto',
+//     price: 1900,
+//     thumbnail: 'Link Décimo Producto',
+//     code: 'A10',
+//     stock: 100
 // })
 
 //A continuación comentar las lineas 107 a 114 y descomentar la 118. Correr archivo
